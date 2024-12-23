@@ -21,7 +21,7 @@ body {
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   padding: 40px;
-  animation: fadeIn 1s ease-in-out; /* Added fade-in animation for the container */
+  animation: fadeIn 1s ease-in-out; /* Fade-in effect for the container */
 }
 
 /* Sidebar Styling */
@@ -32,7 +32,7 @@ body {
   border-right: 1px solid #e9ecef;
   display: flex;
   flex-direction: column;
-  animation: slideInLeft 1s ease-in-out; /* Sidebar slides in from the left */
+  animation: slideInLeft 1s ease-in-out; /* Sidebar slides in */
 }
 
 .sidebar .logo {
@@ -56,7 +56,7 @@ body {
   padding: 12px 15px;
   border-radius: 5px;
   cursor: pointer;
-  transition: background 0.3s ease, transform 0.3s ease; /* Added hover effect */
+  transition: background 0.3s ease, transform 0.3s ease;
   text-align: left;
   animation: fadeIn 0.5s ease-in-out both; /* Each item fades in */
 }
@@ -67,10 +67,6 @@ body {
   background-color: #e9f5ff;
 }
 
-.steps li:hover {
-  transform: scale(1.05); /* Slight zoom effect on hover */
-}
-
 /* Main Content Styling */
 .main-content {
   flex: 1;
@@ -79,12 +75,11 @@ body {
   flex-direction: column;
   justify-content: flex-start;
   margin-left: 30px;
-  animation: fadeIn 1.5s ease-in-out; /* Form content fades in */
+  animation: fadeIn 1.5s ease-in-out; /* Main content fades in */
 }
 
 .step {
   display: none;
-  flex-grow: 1;
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth fade-in and slide-up effect */
@@ -96,32 +91,35 @@ body {
   transform: translateY(0);
 }
 
+.step.exiting {
+  animation: fadeOut 0.5s ease-in-out forwards; /* Smooth fade-out animation for exiting step */
+}
+
 /* Form Styling */
 .form-row {
   display: flex;
-  gap: 30px;
+  gap: 30px; /* Add space between columns */
   margin-bottom: 20px;
 }
 
 .form-group {
   flex: 1;
   margin-bottom: 20px;
-  animation: fadeIn 0.5s ease-in-out; /* Form fields fade in */
 }
 
 label {
   display: block;
-  margin-bottom: 10px;
+  margin-bottom: 10px; /* Increased spacing between label and input */
   font-size: 14px;
   color: #333;
 }
 
 input, textarea, select {
   width: 100%;
-  padding: 15px;
+  padding: 15px; /* Increased padding inside inputs for better spacing */
   font-size: 16px;
   border: 1px solid #ccc;
-  border-radius: 8px;
+  border-radius: 8px; /* Slightly rounded corners for better design */
   box-sizing: border-box;
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Added hover animation */
 }
@@ -152,6 +150,8 @@ input[type="range"] {
   justify-content: space-between;
   align-items: center;
   margin-top: 40px;
+  transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth fade and movement */
+  opacity: 1;
 }
 
 button {
@@ -162,70 +162,74 @@ button {
   border-radius: 8px;
   cursor: pointer;
   font-size: 16px;
-  transition: background-color 0.3s ease, transform 0.3s ease; /* Added animation */
-  animation: slideInUp 1s ease-in-out; /* Buttons slide in from the bottom */
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button.hidden {
+  opacity: 0;
+  transform: translateY(20px); /* Add a movement during hiding */
+  pointer-events: none; /* Disable interaction while hidden */
 }
 
 button:hover {
   background: #0056b3;
-  transform: scale(1.05); /* Slight zoom effect on hover */
+  transform: scale(1.05); /* Slight zoom on hover */
 }
 
 button:disabled {
   background: #d6d6d6;
   cursor: not-allowed;
+  opacity: 0.6; /* Make disabled button slightly transparent */
 }
 
 /* Keyframes for Animations */
 @keyframes fadeIn {
   from {
-      opacity: 0;
+    opacity: 0;
   }
   to {
-      opacity: 1;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
   }
 }
 
 @keyframes slideInLeft {
   from {
-      transform: translateX(-50px);
-      opacity: 0;
+    transform: translateX(-50px);
+    opacity: 0;
   }
   to {
-      transform: translateX(0);
-      opacity: 1;
-  }
-}
-
-@keyframes slideInUp {
-  from {
-      transform: translateY(50px);
-      opacity: 0;
-  }
-  to {
-      transform: translateY(0);
-      opacity: 1;
+    transform: translateX(0);
+    opacity: 1;
   }
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
   .animated-background {
-      flex-direction: column;
-      padding: 20px;
+    flex-direction: column;
+    padding: 20px;
   }
 
   .sidebar {
-      width: 100%;
-      border-right: none;
-      border-bottom: 1px solid #e9ecef;
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #e9ecef;
   }
 
   .form-row {
-      flex-direction: column;
+    flex-direction: column;
   }
 
   .main-content {
-      margin-left: 0;
+    margin-left: 0;
   }
 }
