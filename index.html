@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>PriceWise</title>
+</head>
+<body>
+    <div class="animated-background">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">PriceWise</div>
+            <ul class="steps">
+                <li id="step-indicator-0" class="current">1. Business Info</li>
+                <li id="step-indicator-1">2. Product Info</li>
+                <li id="step-indicator-2">3. Competitor Info</li>
+                <li id="step-indicator-3">4. Operating Costs</li>
+                <li id="step-indicator-4">5. Pricing Constraints</li>
+                <li id="step-indicator-5">6. Additional Inputs</li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="help-section">
+                <a href="#" class="help-link">Having trouble? <span>Get Help</span></a>
+            </header>
+
+            <!-- Step 1: Business Information -->
+            <div id="step-0" class="step active">
+                <h2>Business Information</h2>
+                <form id="business-info-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="company-name">Company Name</label>
+                            <input type="text" id="company-name" name="company-name" placeholder="Enter your company name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="industry">Industry</label>
+                            <select id="industry" name="industry" required>
+                                <option value="" disabled selected>Select Industry</option>
+                                <option value="retail">Retail</option>
+                                <option value="manufacturing">Manufacturing</option>
+                                <option value="technology">Technology</option>
+                                <option value="hospitality">Hospitality</option>
+                                <option value="services">Services</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="location">Location</label>
+                        <input type="text" id="location" name="location" placeholder="Enter your business location (city/state/country)" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="annual-revenue">Annual Revenue (optional)</label>
+                            <input type="number" id="annual-revenue" name="annual-revenue" placeholder="Enter your annual revenue">
+                        </div>
+                        <div class="form-group">
+                            <label for="employees">Number of Employees</label>
+                            <input type="number" id="employees" name="employees" placeholder="Enter the total number of employees" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="currency">Currency</label>
+                        <select id="currency" name="currency" required>
+                            <option value="" disabled selected>Select Currency</option>
+                            <option value="usd">USD</option>
+                            <option value="eur">EUR</option>
+                            <option value="gbp">GBP</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Step 2: Product Information -->
+            <div id="step-1" class="step">
+                <h2>Product Information</h2>
+                <form id="product-info-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="product-name">Product Name</label>
+                            <input type="text" id="product-name" name="product-name" placeholder="Enter product name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="category">Category</label>
+                            <select id="category" name="category" required>
+                                <option value="" disabled selected>Select Category</option>
+                                <option value="electronics">Electronics</option>
+                                <option value="fashion">Fashion</option>
+                                <option value="groceries">Groceries</option>
+                                <option value="beauty">Beauty</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Product Description</label>
+                        <textarea id="description" name="description" placeholder="Provide a brief description of the product" rows="4" required></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="cogs">Cost of Goods Sold (COGS)</label>
+                            <input type="number" id="cogs" name="cogs" placeholder="Enter COGS per unit" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="current-price">Current Selling Price (optional)</label>
+                            <input type="number" id="current-price" name="current-price" placeholder="Enter current selling price">
+                        </div>
+                        <div class="form-group">
+                            <label for="monthly-sales">Estimated Monthly Sales Volume</label>
+                            <input type="number" id="monthly-sales" name="monthly-sales" placeholder="Enter estimated units sold per month">
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Step 3: Competitor Information -->
+            <div id="step-2" class="step">
+                <h2>Competitor Information</h2>
+                <form id="competitor-info-form">
+                    <div class="form-group">
+                        <label for="competitor-names">Competitor Names or URLs</label>
+                        <textarea id="competitor-names" name="competitor-names" placeholder="Enter competitors' names or website URLs" rows="4"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="competitor-prices">Competitor Prices</label>
+                        <textarea id="competitor-prices" name="competitor-prices" placeholder="Enter competitor product prices (optional)" rows="4"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="region">Market/Region of Competitors</label>
+                        <input type="text" id="region" name="region" placeholder="Enter the region competitors operate in">
+                    </div>
+                    <div class="form-group">
+                        <label for="strength">Competitor Strength Assessment (optional)</label>
+                        <select id="strength" name="strength">
+                            <option value="" disabled selected>Select Strength</option>
+                            <option value="weak">Weak</option>
+                            <option value="moderate">Moderate</option>
+                            <option value="strong">Strong</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Step 4: Business Operating Costs -->
+            <div id="step-3" class="step">
+                <h2>Business Operating Costs</h2>
+                <form id="operating-costs-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="fixed-costs">Fixed Costs</label>
+                            <input type="number" id="fixed-costs" name="fixed-costs" placeholder="Enter total fixed costs (e.g., rent, salaries)">
+                        </div>
+                        <div class="form-group">
+                            <label for="variable-costs">Variable Costs (per unit)</label>
+                            <input type="number" id="variable-costs" name="variable-costs" placeholder="Enter variable costs per unit">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="marketing-budget">Marketing Budget (monthly)</label>
+                            <input type="number" id="marketing-budget" name="marketing-budget" placeholder="Enter monthly marketing budget">
+                        </div>
+                        <div class="form-group">
+                            <label for="shipping-costs">Logistics/Shipping Costs (per unit)</label>
+                            <input type="number" id="shipping-costs" name="shipping-costs" placeholder="Enter per-unit logistics or shipping costs">
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Step 5: Pricing Constraints -->
+            <div id="step-4" class="step">
+                <h2>Pricing Constraints</h2>
+                <form id="pricing-constraints-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="profit-margin">Desired Profit Margin (%)</label>
+                            <input type="number" id="profit-margin" name="profit-margin" placeholder="Enter desired profit margin as a percentage">
+                        </div>
+                        <div class="form-group">
+                            <label for="max-price">Maximum Price (absolute)</label>
+                            <input type="number" id="max-price" name="max-price" placeholder="Enter the maximum price allowed for the product">
+                        </div>
+                        <div class="form-group">
+                            <label for="max-markup">Maximum Markup (%)</label>
+                            <input type="number" id="max-markup" name="max-markup" placeholder="Enter the maximum markup percentage">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="min-price">Minimum Price (optional)</label>
+                            <input type="number" id="min-price" name="min-price" placeholder="Enter the minimum price for the product">
+                        </div>
+                        <div class="form-group">
+                            <label for="pricing-strategy">Preferred Pricing Strategy</label>
+                            <select id="pricing-strategy" name="pricing-strategy">
+                                <option value="" disabled selected>Select Strategy</option>
+                                <option value="cost-plus">Cost-Plus Pricing</option>
+                                <option value="competitor-based">Competitor-Based Pricing</option>
+                                <option value="value-based">Value-Based Pricing</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Step 6: Additional Inputs -->
+            <div id="step-5" class="step">
+                <h2>Additional Inputs</h2>
+                <form id="additional-inputs-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="seasonality">Seasonality</label>
+                            <select id="seasonality" name="seasonality">
+                                <option value="" disabled selected>Select Seasonality</option>
+                                <option value="seasonal">Seasonal</option>
+                                <option value="non-seasonal">Non-Seasonal</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="perceived-value">Perceived Value Factor (1-10)</label>
+                            <input type="range" id="perceived-value" name="perceived-value" min="1" max="10" step="1">
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Navigation Buttons -->
+            <div class="button-group">
+                <button class="prev-btn" onclick="prevStep()">Previous</button>
+                <button class="next-btn" onclick="nextStep()">Next</button>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
